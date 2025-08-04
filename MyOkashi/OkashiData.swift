@@ -14,7 +14,7 @@ import SwiftUI
             let url: URL?
             let image: URL?
         }
-        let Item: [Item]?
+        let item: [Item]?
     }
     
     func searchOkashi(keyword: String) {
