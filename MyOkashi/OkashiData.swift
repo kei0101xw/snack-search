@@ -18,6 +18,13 @@ import SwiftUI
     }
     
     func searchOkashi(keyword: String) {
+        
+        Task {
+            await search(keyword: keyword)
+        }
+    }
+    
+    private func search(keyword: String) async {
         guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
         }
@@ -27,13 +34,5 @@ import SwiftUI
         }
         
         print(req_url)
-        
-        Task {
-            await search(keyword: keyword)
-        }
-    }
-    
-    private func search(keyword: String) async {
-        print("searchメソッドで受け取った値：\(keyword)")
     }
 }
