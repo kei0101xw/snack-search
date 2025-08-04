@@ -26,6 +26,8 @@ struct OkashiItem: Identifiable {
     
     var okashiList: [OkashiItem] = []
     
+    var okashiLink: URL?
+    
     func searchOkashi(keyword: String) {
         
         Task {
