@@ -9,7 +9,15 @@ import SwiftUI
 
 @Observable class OkashiData {
     func searchOkashi(keyword: String) {
-        print("searchOkashiメソッドで受け取った値：\(keyword)")
+        guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return
+        }
+        
+        guard let req_url = URL(string: "https://sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r") else {
+            return
+        }
+        
+        print(req_url)
         
         Task {
             await search(keyword: keyword)
