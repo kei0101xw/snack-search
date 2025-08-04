@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+struct OkashiItem: Identifiable {
+    let id = UUID()
+    let name: String
+    let link: URL
+    let image: URL
+}
+
 @Observable class OkashiData {
     struct ResultJson: Codable {
         struct Item: Codable {
@@ -16,6 +23,8 @@ import SwiftUI
         }
         let item: [Item]?
     }
+    
+    var okashiList: [OkashiItem] = []
     
     func searchOkashi(keyword: String) {
         
