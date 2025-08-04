@@ -8,6 +8,15 @@
 import SwiftUI
 
 @Observable class OkashiData {
+    struct ResultJson: Codable {
+        struct Item: Codable {
+            let name: String?
+            let url: URL?
+            let image: URL?
+        }
+        let Item: [Item]?
+    }
+    
     func searchOkashi(keyword: String) {
         guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
