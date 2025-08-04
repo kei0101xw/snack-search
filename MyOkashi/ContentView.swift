@@ -18,6 +18,8 @@ struct ContentView: View {
             .onSubmit {
                 okashiDataList.searchOkashi(keyword: inputText)
             }
+            .submitLabel(.search)
+            .padding()
         }
     }
 }
